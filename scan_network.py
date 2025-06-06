@@ -1,4 +1,16 @@
+import subprocess
 from network_info import get_local_network_info
+
+def ping(ip):
+    """
+    Attempts to ping an IP once.
+    """
+    result = subprocess.run(
+        ["ping", "-n", "1", ip],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL
+    )
+    return result.returncode
 
 def scan_subnet(network):
     """
