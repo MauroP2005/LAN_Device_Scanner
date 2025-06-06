@@ -13,11 +13,11 @@ def ping(ip):
     return result.returncode
 
 def scan_subnet(network):
-    """
-    Placeholder function to ping all IPs in the subnet
-    """
     print(f"Scanning subnet: {network}")
-
+    for ip in network.hosts():
+        if ping(str(ip)):
+            print(f"[*] {ip} is online")
+            
 if __name__ == "__main__":
     _, _, subnet = get_local_network_info()
     scan_subnet(subnet)
