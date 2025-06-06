@@ -10,7 +10,7 @@ def ping(ip):
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL
     )
-    return result.returncode
+    return result.returncode == 0
 
 def scan_subnet(network):
     print(f"Scanning subnet: {network}")
