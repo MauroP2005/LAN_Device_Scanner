@@ -19,12 +19,13 @@ def scan_subnet(network):
     """
     print(f"Scanning subnet: {network}")
     alive_hosts = []
+    hosts = list(network.hosts())
     
     with ThreadPoolExecutor(max_workers=100) as executor:
-        results = executor.map(ping, map(str, network.hosts()))
+        results = executor.map(ping, map(str, hosts))
         
-    for ip, is_alive in  zip(network.hosts(), results):
-        if is_alive:
+    for ip, is_alive in  zip(hosts, results):
+        if is_alive:    
             print(f"[*] {ip} is online")
             alive_hosts.append(str(ip))
     
