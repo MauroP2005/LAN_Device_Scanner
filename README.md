@@ -8,7 +8,7 @@ A Python tool that scans your local network and lists all connected devices. Use
 
 - Detects your local IP address and subnet mask
 - Calculates your network's CIDR range (e.g. `192.168.1.0/24`)
-- [Coming Soon] Scans all devices on the subnet
+- Scans all devices on the subnet using multithreaded ping
 - [Planned] Displays hostname and MAC address (if available)
 
 ---
@@ -18,6 +18,6 @@ A Python tool that scans your local network and lists all connected devices. Use
 - Python 3.10+
 - `psutil` package
 
-Install requirements:
+### Install requirements:
 ```bash
 pip install psutil
