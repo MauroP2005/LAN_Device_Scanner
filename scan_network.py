@@ -5,9 +5,10 @@ from concurrent.futures import ThreadPoolExecutor
 def ping(ip):
     """
     Attempts to ping an IP once.
+    Suppresses output and returns True if host responds.
     """
     result = subprocess.run(
-        ["ping", "-n", "1", ip],
+        ["ping", "-n", "1", "-w", "100", ip],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL
     )
