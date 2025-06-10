@@ -38,7 +38,7 @@ def scan_subnet(network):
         if is_alive:    
             hostname = resolve_hostname(str(ip))    #Get hostname
             print(f"[*] {ip} is online")
-            alive_hosts.append(str(ip), hostname)   #Store IP and host name
+            alive_hosts.append((str(ip), hostname))   #Store IP and host name
     
     print(f"\nScan complete. {len(alive_hosts)} devices found!")
     return alive_hosts
