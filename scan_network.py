@@ -42,7 +42,14 @@ def scan_subnet(network):
     
     print(f"\nScan complete. {len(alive_hosts)} devices found!")
     return alive_hosts
-    
+
+def save_results(alive_hosts, filename="scan_results.csv"):
+    with open(filename, mode="w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow(["IP Address", "Hostname"])
+        for ip, hostname in alive_hosts:
+            writer.writerow([ip, hostname])
+
 if __name__ == "__main__":
     _, _, subnet = get_local_network_info()
     results = scan_subnet(subnet)       #Scan subnet for live devices and resolve their hostnames
