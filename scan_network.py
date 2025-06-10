@@ -46,4 +46,4 @@ def scan_subnet(network):
 if __name__ == "__main__":
     _, _, subnet = get_local_network_info()
     results = scan_subnet(subnet)       #Scan subnet for live devices and resolve their hostnames
-    #save_results(results)  #Include only if using CSV export
+    save_results(results)  #Include only if using CSV export
