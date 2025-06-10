@@ -18,10 +18,10 @@ def ping(ip):
 
 def resolve_hostname(ip):
     #Reverse DNS lookup on the given IP address
-    result = socket.gethostbyaddr(ip)
-    if result and isinstance(result, tuple) and len(result) > 0:
-        return result[0]    #Return hostname
-    return "Unknown"    #Return if result is invalid
+    try:
+        return socket.gethostbyaddr(ip)[0]
+    except socket.herror:
+        return "Unknown"
 
 def scan_subnet(network):
     """
